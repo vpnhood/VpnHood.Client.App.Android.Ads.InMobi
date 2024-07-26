@@ -1,0 +1,12 @@
+﻿/Android/.gradle/
+/Android/.idea/
+/.idea/
+/Android/app/build/
+/Android/app/src/main/java/com/example/myinmobiads/MyLocalMainActivity.java
+/Android/local.properties
+/DotNet/.idea/
+/DotNet/SampleShowAd/bin/
+/DotNet/SampleShowAd/obj/
+/DotNet/SampleShowAd/MyLocalMainActivity.cs
+/DotNet/VhChartboost/bin/
+/DotNet/VhChartboost/obj/

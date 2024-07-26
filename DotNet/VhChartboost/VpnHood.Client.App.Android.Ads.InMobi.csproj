@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<Description>VpnHood Android Ad Library for InMobi</Description>
+		<TargetFramework>net8.0-android</TargetFramework>
+		<SupportedOSPlatformVersion>24</SupportedOSPlatformVersion>
+    <RootNamespace>VpnHood.Client.App.Droid.Ads.VhInMobi</RootNamespace>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<IncludeSymbols>True</IncludeSymbols>
+		<SymbolPackageFormat>symbols.nupkg</SymbolPackageFormat>
+		<LangVersion>latest</LangVersion>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<PackageLicenseExpression>LGPL-2.1-only</PackageLicenseExpression>
+		<Company>OmegaHood LLC</Company>
+		<Copyright>© OmegaHood LLC. All rights reserved.</Copyright>
+		<PackageIcon>VpnHood.png</PackageIcon>
+		<PackageProjectUrl>https://github.com/vpnhood/VpnHood.Client.App.Android.Ads.InMobi</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/vpnhood/VpnHood.Client.App.Android.Ads.InMobi</RepositoryUrl>
+		<Version>4.5.542</Version>
+		<FileVersion>$([System.DateTime]::Now.ToString("yyyy.M.d.HHmm"))</FileVersion>
+		<BaseIntermediateOutputPath />
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="OMSDK.aar" />
+	  <None Remove="VpnHood_InMobi_Ads-debug.aar" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\VpnHood.png" Link="Resources\VpnHood.png">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+	</ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Square.Picasso" Version="2.71828.0" />
+    <PackageReference Include="Xamarin.AndroidX.Browser" Version="1.4.0" />
+    <PackageReference Include="Xamarin.GooglePlayServices.Ads.Identifier" Version="118.0.1" />
+    <PackageReference Include="Xamarin.GooglePlayServices.AppSet" Version="16.0.2" />
+    <PackageReference Include="Xamarin.GooglePlayServices.Location" Version="121.0.1" />
+    <PackageReference Include="Xamarin.GooglePlayServices.Tasks" Version="118.2.0" />
+    <PackageReference Include="Xamarin.Kotlin.StdLib.Jdk8" Version="1.8.22" />
+  </ItemGroup>
+</Project>
