@@ -1,0 +1,2 @@
+-skipnonpubliclibraryclasses class InMobiAdService.**
+-skipnonpubliclibraryclasses class InMobiAdInitializer.**
