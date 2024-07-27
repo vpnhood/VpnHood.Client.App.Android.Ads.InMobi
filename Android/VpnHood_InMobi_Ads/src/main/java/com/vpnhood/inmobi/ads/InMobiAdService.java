@@ -63,7 +63,6 @@ class InMobiAdService extends InterstitialAdEventListener implements IAppAdServi
 
     @Override
     public void onAdDisplayed(@NonNull InMobiInterstitial ad, @NonNull AdMetaInfo info) {
-        _showTask.complete(null);
     }
 
     @Override
@@ -73,7 +72,7 @@ class InMobiAdService extends InterstitialAdEventListener implements IAppAdServi
 
     @Override
     public void onAdDismissed(@NonNull InMobiInterstitial ad) {
-
+        _showTask.complete(null);
     }
 
     @Override

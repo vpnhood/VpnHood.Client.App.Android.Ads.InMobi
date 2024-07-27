@@ -39,6 +39,9 @@
 	</ItemGroup>
   <ItemGroup>
     <PackageReference Include="Square.Picasso" Version="2.71828.0" />
+    <PackageReference Include="VpnHood.Client.App.Abstractions" Version="4.6.547" />
+    <PackageReference Include="VpnHood.Client.App.Android.Common" Version="4.6.547" />
+    <PackageReference Include="VpnHood.Client.Device.Android" Version="4.6.547" />
     <PackageReference Include="Xamarin.AndroidX.Browser" Version="1.4.0" />
     <PackageReference Include="Xamarin.GooglePlayServices.Ads.Identifier" Version="118.0.1" />
     <PackageReference Include="Xamarin.GooglePlayServices.AppSet" Version="16.0.2" />

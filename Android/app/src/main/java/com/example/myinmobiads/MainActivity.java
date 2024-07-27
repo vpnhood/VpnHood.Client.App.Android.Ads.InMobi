@@ -27,9 +27,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
         CompletableFuture<Void> initTask = InMobiAdServiceFactory.InitializeInMobi(this,
-                "YOUR_IN_MOBI_ACCOUNT_ID", true);
+                InMobiCredential.AccountId, true);
         initTask.thenAccept(result -> {
-            IAppAdService appAdService = InMobiAdServiceFactory.create("YOUR_PLACEMENT_ID_AS_LONG");
+            IAppAdService appAdService = InMobiAdServiceFactory.create(InMobiCredential.PlacementId);
             appAdService.LoadAd(this).thenAccept(result2 -> appAdService.ShowAd(this));
         });
     }
