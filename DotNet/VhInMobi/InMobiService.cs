@@ -1,18 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Com.Inmobi.Ads;
-using Com.Vpnhood.Inmobi.Ads;
-using Java.Lang;
-using Java.Util.Concurrent;
+﻿using Com.Vpnhood.Inmobi.Ads;
 using VpnHood.Client.App.Abstractions;
 using VpnHood.Client.App.Droid.Common.Utils;
 using VpnHood.Client.Device;
 using VpnHood.Client.Device.Droid;
 using VpnHood.Common.Exceptions;
-using VpnHood.Common.Utils;
 
 namespace VpnHood.Client.App.Droid.Ads.VhInMobi
 {
@@ -47,16 +38,13 @@ namespace VpnHood.Client.App.Droid.Ads.VhInMobi
             if (activity.IsDestroyed)
                 throw new AdException("MainActivity has been destroyed before loading the ad.");
 
-            // initialize
-            await InMobiUtil.Initialize(activity, accountId, isDebugMode, cancellationToken);
-            _vhInMobiAdService = InMobiAdServiceFactory.Create(Java.Lang.Long.ValueOf(placementId));
-
             // reset the last loaded ad
             AdLoadedTime = null;
 
-            // Load a new Ad
-            if (_vhInMobiAdService == null)
-                throw new AdException($"The {AdType} ad is not initialized");
+            // initialize
+            await InMobiUtil.Initialize(activity, accountId, isDebugMode, cancellationToken);
+            _vhInMobiAdService = InMobiAdServiceFactory.Create(Java.Lang.Long.ValueOf(placementId)) 
+                ?? throw new AdException($"The {AdType} ad is not initialized");
 
             await _vhInMobiAdService.LoadAd(activity)!.AsTask();
             AdLoadedTime = DateTime.Now;
