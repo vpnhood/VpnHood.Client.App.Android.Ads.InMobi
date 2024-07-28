@@ -25,7 +25,7 @@ public class InMobiService(string accountId, long placementId, bool isDebugMode)
     public bool IsCountrySupported(string countryCode)
     {
         // Make sure it is upper case
-        countryCode = countryCode.Trim().ToUpper();
+        // countryCode = countryCode.Trim().ToUpper();
 
         // these countries are not supported at all
         return true;
@@ -43,7 +43,7 @@ public class InMobiService(string accountId, long placementId, bool isDebugMode)
 
         // initialize
         await InMobiUtil.Initialize(activity, accountId, isDebugMode, cancellationToken);
-        _vhInMobiAdService = InMobiAdServiceFactory.Create(Java.Lang.Long.ValueOf(placementId)) 
+        _vhInMobiAdService = InMobiAdServiceFactory.Create(Java.Lang.Long.ValueOf(placementId))
                              ?? throw new AdException($"The {AdType} ad is not initialized");
 
         await _vhInMobiAdService.LoadAd(activity)!.AsTask();
