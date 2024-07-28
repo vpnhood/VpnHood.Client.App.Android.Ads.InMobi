@@ -21,7 +21,7 @@
 		<PackageIcon>VpnHood.png</PackageIcon>
 		<PackageProjectUrl>https://github.com/vpnhood/VpnHood.Client.App.Android.Ads.InMobi</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/vpnhood/VpnHood.Client.App.Android.Ads.InMobi</RepositoryUrl>
-		<Version>4.5.548</Version>
+		<Version>4.5.547</Version>
 		<FileVersion>$([System.DateTime]::Now.ToString("yyyy.M.d.HHmm"))</FileVersion>
 		<BaseIntermediateOutputPath />
 	</PropertyGroup>
@@ -35,6 +35,7 @@
 	<ItemGroup>
 		<PackageReference Include="Square.Picasso" Version="2.71828.0" />
 		<PackageReference Include="VpnHood.Client.App.Abstractions" Version="4.6.547" />
+		<PackageReference Include="VpnHood.Client.App.Android.Common" Version="4.6.547" />
 		<PackageReference Include="VpnHood.Client.Device.Android" Version="4.6.547" />
 	</ItemGroup>
 </Project>
