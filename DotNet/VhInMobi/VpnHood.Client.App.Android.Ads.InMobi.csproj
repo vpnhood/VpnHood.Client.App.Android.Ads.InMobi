@@ -27,16 +27,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<AndroidLibrary Remove="ExternalJavaLibs\InMobiSDK.aar" />
-		<AndroidLibrary Remove="ExternalJavaLibs\OMSDK.aar" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<AndroidExternalJavaLibrary Include="ExternalJavaLibs\InMobiSDK.aar" />
-		<AndroidExternalJavaLibrary Include="ExternalJavaLibs\OMSDK.aar" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<None Include="..\VpnHood.png" Link="Resources\VpnHood.png">
 			<Pack>True</Pack>
 			<PackagePath></PackagePath>
