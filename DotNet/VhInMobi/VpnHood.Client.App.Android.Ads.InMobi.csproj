@@ -38,10 +38,6 @@
 		<PackageReference Include="VpnHood.Client.App.Android.Common" Version="4.6.547" />
 		<PackageReference Include="VpnHood.Client.Device.Android" Version="4.6.547" />
 		<PackageReference Include="Xamarin.AndroidX.Browser" Version="1.8.0.4" />
-		<PackageReference Include="Xamarin.GooglePlayServices.Ads.Identifier" Version="118.1.0" />
-		<PackageReference Include="Xamarin.GooglePlayServices.AppSet" Version="116.1.0" />
-		<PackageReference Include="Xamarin.GooglePlayServices.Location" Version="121.3.0" />
-		<PackageReference Include="Xamarin.GooglePlayServices.Tasks" Version="118.2.0" />
 		<PackageReference Include="Xamarin.Kotlin.StdLib.Jdk8" Version="2.0.0.1" />
 	</ItemGroup>
 </Project>
