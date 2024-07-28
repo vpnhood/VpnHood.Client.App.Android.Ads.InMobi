@@ -3,7 +3,7 @@
 		<Description>VpnHood Android Ad Library for InMobi</Description>
 		<TargetFramework>net8.0-android</TargetFramework>
 		<SupportedOSPlatformVersion>24</SupportedOSPlatformVersion>
-    <RootNamespace>VpnHood.Client.App.Droid.Ads.VhInMobi</RootNamespace>
+		<RootNamespace>VpnHood.Client.App.Droid.Ads.VhInMobi</RootNamespace>
 	</PropertyGroup>
 
 	<PropertyGroup>
@@ -27,8 +27,13 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <None Remove="InMobiSDK.aar" />
-	  <None Remove="VpnHood_InMobi_Ads.aar" />
+		<AndroidLibrary Remove="ExternalJavaLibs\InMobiSDK.aar" />
+		<AndroidLibrary Remove="ExternalJavaLibs\OMSDK.aar" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<AndroidExternalJavaLibrary Include="ExternalJavaLibs\InMobiSDK.aar" />
+		<AndroidExternalJavaLibrary Include="ExternalJavaLibs\OMSDK.aar" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -37,16 +42,16 @@
 			<PackagePath></PackagePath>
 		</None>
 	</ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Square.Picasso" Version="2.71828.0" />
-    <PackageReference Include="VpnHood.Client.App.Abstractions" Version="4.6.547" />
-    <PackageReference Include="VpnHood.Client.App.Android.Common" Version="4.6.547" />
-    <PackageReference Include="VpnHood.Client.Device.Android" Version="4.6.547" />
-    <PackageReference Include="Xamarin.AndroidX.Browser" Version="1.8.0.4" />
-    <PackageReference Include="Xamarin.GooglePlayServices.Ads.Identifier" Version="118.1.0" />
-    <PackageReference Include="Xamarin.GooglePlayServices.AppSet" Version="116.1.0" />
-    <PackageReference Include="Xamarin.GooglePlayServices.Location" Version="121.3.0" />
-    <PackageReference Include="Xamarin.GooglePlayServices.Tasks" Version="118.2.0" />
-    <PackageReference Include="Xamarin.Kotlin.StdLib.Jdk8" Version="2.0.0.1" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Square.Picasso" Version="2.71828.0" />
+		<PackageReference Include="VpnHood.Client.App.Abstractions" Version="4.6.547" />
+		<PackageReference Include="VpnHood.Client.App.Android.Common" Version="4.6.547" />
+		<PackageReference Include="VpnHood.Client.Device.Android" Version="4.6.547" />
+		<PackageReference Include="Xamarin.AndroidX.Browser" Version="1.8.0.4" />
+		<PackageReference Include="Xamarin.GooglePlayServices.Ads.Identifier" Version="118.1.0" />
+		<PackageReference Include="Xamarin.GooglePlayServices.AppSet" Version="116.1.0" />
+		<PackageReference Include="Xamarin.GooglePlayServices.Location" Version="121.3.0" />
+		<PackageReference Include="Xamarin.GooglePlayServices.Tasks" Version="118.2.0" />
+		<PackageReference Include="Xamarin.Kotlin.StdLib.Jdk8" Version="2.0.0.1" />
+	</ItemGroup>
 </Project>
