@@ -11,7 +11,7 @@ jobs:
   
     env:
         BUILD_CONFIG: 'Release'
-        PROJECT_NAME: 'VhInMobi'
+        PROJECT_NAME: 'DotNet/VhInMobi'
 
     runs-on: ubuntu-latest
 
