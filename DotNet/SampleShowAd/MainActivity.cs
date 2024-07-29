@@ -1,4 +1,3 @@
-using _Microsoft.Android.Resource.Designer;
 using VpnHood.Client.App.Droid.Ads.VhInMobi;
 using VpnHood.Client.Device.Droid;
 using VpnHood.Client.Device.Droid.ActivityEvents;
@@ -13,7 +12,8 @@ public class MainActivity : ActivityEvent
         base.OnCreate(savedInstanceState);
 
         // Set our view from the "main" layout resource
-        SetContentView(ResourceConstant.Layout.activity_main);
+        // ReSharper disable once AccessToStaticMemberViaDerivedType
+        SetContentView(Resource.Layout.activity_main);
         _ = ShowAd();
     }
 

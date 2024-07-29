@@ -22,16 +22,7 @@ public class InMobiAdProvider(string accountId, long placementId, bool isDebugMo
         var ret = new InMobiAdProvider(accountId, placementId, isDebugMode);
         return ret;
     }
-
-    public bool IsCountrySupported(string countryCode)
-    {
-        // Make sure it is upper case
-        // countryCode = countryCode.Trim().ToUpper();
-
-        // these countries are not supported at all
-        return true;
-    }
-
+    
     public async Task LoadAd(IUiContext uiContext, CancellationToken cancellationToken)
     {
         var appUiContext = (AndroidUiContext)uiContext;
