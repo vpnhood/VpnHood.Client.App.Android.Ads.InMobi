@@ -20,9 +20,9 @@ public class MainActivity : ActivityEvent
     private async Task ShowAd()
     {
         try {
-            var adService = InMobiService.Create(InMobiCredential.AccountId, InMobiCredential.PlacementId, true);
+            var adService = InMobiAdProvider.Create(InMobiCredential.AccountId, InMobiCredential.PlacementId, true);
             await adService.LoadAd(new AndroidUiContext(this), CancellationToken.None);
-            await adService.ShowAd(new AndroidUiContext(this), CancellationToken.None);
+            await adService.ShowAd(new AndroidUiContext(this), string.Empty, CancellationToken.None);
         }
         catch (Exception e) {
             Console.WriteLine(e);

@@ -13,8 +13,7 @@
     <ProjectReference Include="..\VhInMobi\VpnHood.Client.App.Android.Ads.InMobi.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="VpnHood.Client.App.Abstractions" Version="4.6.547" />
-    <PackageReference Include="VpnHood.Client.Device.Android" Version="4.6.547" />
-    <PackageReference Include="Xamarin.AndroidX.RecyclerView" Version="1.3.2.6" />
+    <PackageReference Include="VpnHood.Client.App.Abstractions" Version="4.6.551" />
+    <PackageReference Include="VpnHood.Client.Device.Android" Version="4.6.551" />
   </ItemGroup>
 </Project>

@@ -1,24 +1,25 @@
 ﻿using Com.Vpnhood.Inmobi.Ads;
 using VpnHood.Client.App.Abstractions;
-using VpnHood.Client.App.Droid.Common.Utils;
 using VpnHood.Client.Device;
 using VpnHood.Client.Device.Droid;
+using VpnHood.Client.Device.Droid.Utils;
 using VpnHood.Common.Exceptions;
 
 namespace VpnHood.Client.App.Droid.Ads.VhInMobi;
 
-public class InMobiService(string accountId, long placementId, bool isDebugMode)
+public class InMobiAdProvider(string accountId, long placementId, bool isDebugMode) 
+    : IAppAdProvider
 {
-    private Com.Vpnhood.Inmobi.Ads.IAppAdService? _vhInMobiAdService;
+    private IAppAdService? _vhInMobiAdService;
 
     public string NetworkName => "InMobi";
     public AppAdType AdType => AppAdType.InterstitialAd;
     public DateTime? AdLoadedTime { get; private set; }
     public TimeSpan AdLifeSpan { get; } = TimeSpan.FromMinutes(45);
 
-    public static InMobiService Create(string accountId, long placementId, bool isDebugMode)
+    public static InMobiAdProvider Create(string accountId, long placementId, bool isDebugMode)
     {
-        var ret = new InMobiService(accountId, placementId, isDebugMode);
+        var ret = new InMobiAdProvider(accountId, placementId, isDebugMode);
         return ret;
     }
 
@@ -50,7 +51,7 @@ public class InMobiService(string accountId, long placementId, bool isDebugMode)
         AdLoadedTime = DateTime.Now;
     }
 
-    public async Task ShowAd(IUiContext uiContext, CancellationToken cancellationToken)
+    public async Task ShowAd(IUiContext uiContext, string? customData, CancellationToken cancellationToken)
     {
         var appUiContext = (AndroidUiContext)uiContext;
         var activity = appUiContext.Activity;
