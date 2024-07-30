@@ -8,13 +8,13 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.vpnhood.inmobi.ads.IAppAdService;
+import com.vpnhood.inmobi.ads.IInMobiAdProvider;
 import com.vpnhood.inmobi.ads.InMobiAdServiceFactory;
 
 import java.util.concurrent.CompletableFuture;
 
 public class MainActivity extends AppCompatActivity {
-
+    public IInMobiAdProvider _iInMobiAdProvider;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,8 +29,10 @@ public class MainActivity extends AppCompatActivity {
         CompletableFuture<Void> initTask = InMobiAdServiceFactory.InitializeInMobi(this,
                 InMobiCredential.AccountId, true);
         initTask.thenAccept(result -> {
-            IAppAdService appAdService = InMobiAdServiceFactory.create(InMobiCredential.PlacementId);
-            appAdService.LoadAd(this).thenAccept(result2 -> appAdService.ShowAd(this));
+            _iInMobiAdProvider = InMobiAdServiceFactory.create(InMobiCredential.PlacementId);
+            _iInMobiAdProvider.LoadAd(this).thenAccept(
+                    result2 -> _iInMobiAdProvider.ShowAd(this)
+            );
         });
     }
 }

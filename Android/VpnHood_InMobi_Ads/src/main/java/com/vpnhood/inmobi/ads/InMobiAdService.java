@@ -10,7 +10,7 @@ import com.inmobi.ads.listeners.InterstitialAdEventListener;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
-class InMobiAdService extends InterstitialAdEventListener implements IAppAdService {
+class InMobiAdService extends InterstitialAdEventListener implements IInMobiAdProvider {
 
     private InMobiInterstitial _interstitialAd;
     public final Long _placementId;

@@ -7,6 +7,7 @@ namespace SampleShowAd;
 [Activity(Label = "@string/app_name", MainLauncher = true)]
 public class MainActivity : ActivityEvent
 {
+    private InMobiAdProvider? _inMobiAdProvider;
     protected override void OnCreate(Bundle? savedInstanceState)
     {
         base.OnCreate(savedInstanceState);
@@ -20,9 +21,9 @@ public class MainActivity : ActivityEvent
     private async Task ShowAd()
     {
         try {
-            var adService = InMobiAdProvider.Create(InMobiCredential.AccountId, InMobiCredential.PlacementId, true);
-            await adService.LoadAd(new AndroidUiContext(this), CancellationToken.None);
-            await adService.ShowAd(new AndroidUiContext(this), string.Empty, CancellationToken.None);
+            _inMobiAdProvider = InMobiAdProvider.Create(InMobiCredential.AccountId, InMobiCredential.PlacementId, true);
+            await _inMobiAdProvider.LoadAd(new AndroidUiContext(this), CancellationToken.None);
+            await _inMobiAdProvider.ShowAd(new AndroidUiContext(this), string.Empty, CancellationToken.None);
         }
         catch (Exception e) {
             Console.WriteLine(e);

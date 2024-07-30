@@ -10,7 +10,7 @@ namespace VpnHood.Client.App.Droid.Ads.VhInMobi;
 public class InMobiAdProvider(string accountId, long placementId, bool isDebugMode) 
     : IAppAdProvider
 {
-    private IAppAdService? _vhInMobiAdService;
+    private IInMobiAdProvider? _inMobiAdProvider;
 
     public string NetworkName => "InMobi";
     public AppAdType AdType => AppAdType.InterstitialAd;
@@ -35,10 +35,10 @@ public class InMobiAdProvider(string accountId, long placementId, bool isDebugMo
 
         // initialize
         await InMobiUtil.Initialize(activity, accountId, isDebugMode, cancellationToken);
-        _vhInMobiAdService = InMobiAdServiceFactory.Create(Java.Lang.Long.ValueOf(placementId))
+        _inMobiAdProvider = InMobiAdServiceFactory.Create(Java.Lang.Long.ValueOf(placementId))
                              ?? throw new AdException($"The {AdType} ad is not initialized");
 
-        await _vhInMobiAdService.LoadAd(activity)!.AsTask();
+        await _inMobiAdProvider.LoadAd(activity)!.AsTask();
         AdLoadedTime = DateTime.Now;
     }
 
@@ -51,14 +51,14 @@ public class InMobiAdProvider(string accountId, long placementId, bool isDebugMo
 
         try
         {
-            if (AdLoadedTime == null || _vhInMobiAdService == null)
+            if (AdLoadedTime == null || _inMobiAdProvider == null)
                 throw new AdException($"The {AdType} has not been loaded.");
 
             Task? task = null;
             // wait for show or dismiss
             activity.RunOnUiThread(() =>
             {
-                task = _vhInMobiAdService.ShowAd(activity)!.AsTask();
+                task = _inMobiAdProvider.ShowAd(activity)!.AsTask();
             });
 
             if (task != null)
@@ -66,7 +66,7 @@ public class InMobiAdProvider(string accountId, long placementId, bool isDebugMo
         }
         finally
         {
-            _vhInMobiAdService = null;
+            _inMobiAdProvider = null;
             AdLoadedTime = null;
         }
     }

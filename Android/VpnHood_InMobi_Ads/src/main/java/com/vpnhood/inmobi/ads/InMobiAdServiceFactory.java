@@ -5,7 +5,7 @@ import android.content.Context;
 import java.util.concurrent.CompletableFuture;
 
 public class InMobiAdServiceFactory {
-    public static IAppAdService create(Long placementId) {
+    public static IInMobiAdProvider create(Long placementId) {
         return new InMobiAdService(placementId);
     }
 
