@@ -16,7 +16,16 @@ public class InMobiUtil
         if (IsInitialized)
             return;
 
-        await InMobiAdServiceFactory.InitializeInMobi(activity, accountId, Java.Lang.Boolean.ValueOf(isDebugMode))!.AsTask();
+        // initialize
+        Task? task = null;
+        activity.RunOnUiThread(() => {
+            task = InMobiAdServiceFactory.InitializeInMobi(activity, accountId, 
+                    Java.Lang.Boolean.ValueOf(isDebugMode))!.AsTask();
+        });
+
+        // wait for completion
+        if (task != null)
+            await task.ConfigureAwait(false);
 
         IsInitialized = true;
     }
