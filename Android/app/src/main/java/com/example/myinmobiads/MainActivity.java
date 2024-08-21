@@ -1,6 +1,7 @@
 package com.example.myinmobiads;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,7 +32,9 @@ public class MainActivity extends AppCompatActivity {
         initTask.thenAccept(result -> {
             _iInMobiAdProvider = InMobiAdServiceFactory.create(InMobiCredential.PlacementId);
             _iInMobiAdProvider.LoadAd(this).thenAccept(
-                    result2 -> _iInMobiAdProvider.ShowAd(this)
+                    result2 -> _iInMobiAdProvider.ShowAd(this).thenAccept(
+                          result3 ->  Log.d("Test Message", "Test")
+                    )
             );
         });
     }
