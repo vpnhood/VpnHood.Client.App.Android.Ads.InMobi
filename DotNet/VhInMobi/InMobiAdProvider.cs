@@ -7,7 +7,7 @@ using VpnHood.Common.Exceptions;
 
 namespace VpnHood.Client.App.Droid.Ads.VhInMobi;
 
-public class InMobiAdProvider(string accountId, long placementId, bool isDebugMode) 
+public class InMobiAdProvider(string accountId, string placementId, bool isDebugMode) 
     : IAppAdProvider
 {
     private IInMobiAdProvider? _inMobiAdProvider;
@@ -17,7 +17,7 @@ public class InMobiAdProvider(string accountId, long placementId, bool isDebugMo
     public DateTime? AdLoadedTime { get; private set; }
     public TimeSpan AdLifeSpan { get; } = TimeSpan.FromMinutes(45);
 
-    public static InMobiAdProvider Create(string accountId, long placementId, bool isDebugMode)
+    public static InMobiAdProvider Create(string accountId, string placementId, bool isDebugMode)
     {
         var ret = new InMobiAdProvider(accountId, placementId, isDebugMode);
         return ret;
