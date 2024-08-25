@@ -17,15 +17,15 @@ public class InMobiUtil
             return;
 
         // initialize
-        Task? task = null;
-        activity.RunOnUiThread(() => {
-            task = InMobiAdServiceFactory.InitializeInMobi(activity, accountId, 
-                    Java.Lang.Boolean.ValueOf(isDebugMode))!.AsTask();
-        });
+        var initTask = await AndroidUtil.RunOnUiThread(activity, () => InMobiAdServiceFactory.InitializeInMobi(activity, accountId,
+                Java.Lang.Boolean.ValueOf(isDebugMode))!.AsTask())
+            .WaitAsync(cancellationToken)
+            .ConfigureAwait(false);
 
         // wait for completion
-        if (task != null)
-            await task.ConfigureAwait(false);
+        await initTask
+            .WaitAsync(cancellationToken)
+            .ConfigureAwait(false);
 
         IsInitialized = true;
     }

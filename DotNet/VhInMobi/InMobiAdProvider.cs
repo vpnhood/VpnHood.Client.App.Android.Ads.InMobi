@@ -39,13 +39,13 @@ public class InMobiAdProvider(string accountId, string placementId, bool isDebug
                              ?? throw new AdException($"The {AdType} ad is not initialized");
 
         // initialize
-        Task? task = null;
-        activity.RunOnUiThread(() => {
-            task = _inMobiAdProvider.LoadAd(activity)!.AsTask();
-        });
-        
-        if (task != null)
-            await task.ConfigureAwait(false);
+        var loadAdTask = await AndroidUtil.RunOnUiThread(activity, () =>  _inMobiAdProvider.LoadAd(activity)!.AsTask())
+            .WaitAsync(cancellationToken)
+            .ConfigureAwait(false);
+
+        await loadAdTask
+            .WaitAsync(cancellationToken)
+            .ConfigureAwait(false);
 
         AdLoadedTime = DateTime.Now;
     }
@@ -62,15 +62,14 @@ public class InMobiAdProvider(string accountId, string placementId, bool isDebug
             if (AdLoadedTime == null || _inMobiAdProvider == null)
                 throw new AdException($"The {AdType} has not been loaded.");
 
-            Task? task = null;
             // wait for show or dismiss
-            activity.RunOnUiThread(() =>
-            {
-                task = _inMobiAdProvider.ShowAd(activity)!.AsTask();
-            });
-
-            if (task != null)
-                await task.ConfigureAwait(false);
+            var showAdTask = await AndroidUtil.RunOnUiThread(activity, () => _inMobiAdProvider.ShowAd(activity)!.AsTask())
+                .WaitAsync(cancellationToken)
+                .ConfigureAwait(false);
+            
+            await showAdTask
+                .WaitAsync(cancellationToken)
+                .ConfigureAwait(false);
         }
         finally
         {
