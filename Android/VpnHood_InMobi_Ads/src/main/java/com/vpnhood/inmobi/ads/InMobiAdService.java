@@ -1,6 +1,8 @@
 package com.vpnhood.inmobi.ads;
 
 import android.content.Context;
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import com.inmobi.ads.AdMetaInfo;
 import com.inmobi.ads.InMobiAdRequestStatus;
@@ -9,6 +11,7 @@ import com.inmobi.ads.listeners.InterstitialAdEventListener;
 
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
+import java.util.logging.Logger;
 
 class InMobiAdService extends InterstitialAdEventListener implements IInMobiAdProvider {
 
@@ -16,6 +19,7 @@ class InMobiAdService extends InterstitialAdEventListener implements IInMobiAdPr
     public final Long _placementId;
     public CompletableFuture<Void> _loadTask;
     public CompletableFuture<Void> _showTask;
+    private boolean isAdImpression = false;
 
     public InMobiAdService(Long placementId){
         _placementId = placementId;
@@ -48,17 +52,14 @@ class InMobiAdService extends InterstitialAdEventListener implements IInMobiAdPr
 
     @Override
     public void onAdFetchSuccessful(@NonNull InMobiInterstitial ad, @NonNull AdMetaInfo info) {
-
     }
 
     @Override
     public void onAdClicked(@NonNull InMobiInterstitial ad, Map< Object, Object > params) {
-
     }
 
     @Override
     public void onAdWillDisplay(@NonNull InMobiInterstitial ad) {
-
     }
 
     @Override
@@ -67,22 +68,27 @@ class InMobiAdService extends InterstitialAdEventListener implements IInMobiAdPr
 
     @Override
     public void onAdDisplayFailed(@NonNull InMobiInterstitial ad) {
-        _showTask.completeExceptionally(new Throwable("Ad failed to display"));
+        _showTask.completeExceptionally(new Throwable("Ad display failed."));
     }
 
     @Override
     public void onAdDismissed(@NonNull InMobiInterstitial ad) {
-        _showTask.complete(null);
+        if (isAdImpression)
+            _showTask.complete(null);
+        else
+            _showTask.completeExceptionally(new Throwable("Ad dismissed before impression."));
+
     }
 
     @Override
     public void onUserLeftApplication(@NonNull InMobiInterstitial ad) {
-
+        _showTask.completeExceptionally(new Throwable("User left application."));
     }
 
 
     @Override
     public void onAdImpression(@NonNull InMobiInterstitial ad) {
+        isAdImpression = true;
     }
 
 }
