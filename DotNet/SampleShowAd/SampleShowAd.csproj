@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net8.0-android</TargetFramework>
-    <SupportedOSPlatformVersion>26</SupportedOSPlatformVersion>
+    <TargetFramework>net9.0-android35.0</TargetFramework>
+    <SupportedOSPlatformVersion>24</SupportedOSPlatformVersion>
     <OutputType>Exe</OutputType>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -13,7 +13,8 @@
     <ProjectReference Include="..\VhInMobi\VpnHood.Client.App.Android.Ads.InMobi.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="VpnHood.Client.App.Abstractions" Version="4.6.566" />
-    <PackageReference Include="VpnHood.Client.Device.Android" Version="4.6.566" />
+    <PackageReference Include="Square.Picasso" Version="2.8.0.16" />
+    <PackageReference Include="VpnHood.Client.App.Abstractions" Version="4.7.586" />
+    <PackageReference Include="VpnHood.Client.Device.Android" Version="4.7.586" />
   </ItemGroup>
 </Project>
