@@ -21,7 +21,7 @@
 		<PackageIcon>VpnHood.png</PackageIcon>
 		<PackageProjectUrl>https://github.com/vpnhood/VpnHood.AppLib.Android.Ads.InMobi</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/vpnhood/VpnHood.AppLib.Android.Ads.InMobi</RepositoryUrl>
-		<Version>5.0.567</Version>
+		<Version>5.0.568</Version>
 		<FileVersion>$([System.DateTime]::Now.ToString("yyyy.M.d.HHmm"))</FileVersion>
 		<BaseIntermediateOutputPath />
 	</PropertyGroup>
