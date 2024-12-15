@@ -10,11 +10,9 @@
     <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
   </PropertyGroup>  
   <ItemGroup>
-    <ProjectReference Include="..\VhInMobi\VpnHood.Client.App.Android.Ads.InMobi.csproj" />
+    <ProjectReference Include="..\VhInMobi\VpnHood.AppLib.Android.Ads.InMobi.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Square.Picasso" Version="2.8.0.16" />
-    <PackageReference Include="VpnHood.Client.App.Abstractions" Version="4.7.586" />
-    <PackageReference Include="VpnHood.Client.Device.Android" Version="4.7.586" />
   </ItemGroup>
 </Project>

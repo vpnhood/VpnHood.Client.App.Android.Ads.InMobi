@@ -1,6 +1,6 @@
-using VpnHood.Client.App.Droid.Ads.VhInMobi;
-using VpnHood.Client.Device.Droid;
-using VpnHood.Client.Device.Droid.ActivityEvents;
+using VpnHood.AppLib.Droid.Ads.VhInMobi;
+using VpnHood.Core.Client.Device.Droid;
+using VpnHood.Core.Client.Device.Droid.ActivityEvents;
 
 namespace SampleShowAd;
 
