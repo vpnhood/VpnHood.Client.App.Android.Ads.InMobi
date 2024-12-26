@@ -32,10 +32,10 @@ dependencies {
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
     //implementation 'com.inmobi.monetization:inmobi-ads:10.1.3'
-    implementation 'com.inmobi.monetization:inmobi-ads-kotlin:10.7.7'
-    implementation 'com.google.android.gms:play-services-ads-identifier:18.0.1'
-    implementation 'androidx.browser:browser:1.4.0'
-    implementation 'com.squareup.picasso:picasso:2.8'
-    implementation 'androidx.viewpager:viewpager:1.0.0'
-    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    implementation libs.inmobi.ads.kotlin
+    implementation libs.play.services.ads.identifier
+    implementation libs.browser
+    implementation libs.picasso
+    implementation libs.viewpager
+    implementation libs.recyclerview
 }
