@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     public IInMobiAdProvider _iInMobiAdProvider;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
